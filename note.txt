@@ -1,0 +1,23 @@
+mysql 主從複製
+原理
+1.主異步通知從
+2.透過主 I/Otread => binlog事件 => 從 SQLthread
+
+配置
+1.一主一從
+2.主主複製,負載均衡
+3. 一主多從
+4. 多主一從
+5. linux: https://blog.csdn.net/cool_summer_moon/article/details/106112560
+
+注意
+1.從可以同步主數據，主不可以同步從數據
+2.insert從造成主從不同步，所以必須搭配讀寫分離
+
+mysql 讀寫分離
+原理
+1. 透過mysql-proxy判斷讀寫操作再轉發主從
+2. https://zhjwpku.com/2018/01/16/mysql-proxy-alternatives.html
+
+延遲問題
+* https://github.com/MyCATApache/Mycat-Server
